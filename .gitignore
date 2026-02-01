@@ -1,1 +1,3 @@
 in progress/password manager/passwords.txt
+*.pyc
+/ascii_renderer/images

@@ -3,7 +3,6 @@ import fs from 'fs';
 const lines = fs.readFileSync('./day5.txt', 'utf-8').split('\n').filter(line => line.trim()).map(line => line.split("-").map(Number)).sort(function(a, b) {return a[0] - b[0];});
 
 // console.log(lines);
-console.log(lines)
 let ranges = []
 let temp = lines[0];
 for (let i = 1; i < lines.length ; i++) {
@@ -22,8 +21,8 @@ let out = 0
 for (let i = 0; i < values.length; i++) {
     let val = values[i];
     let found = false;
-    for (let j = 0; j < lines.length; j++) {
-        if (val >= lines[j][0] && val <= lines[j][1]) {
+    for (let j = 0; j < ranges.length; j++) {
+        if (val >= ranges[j][0] && val <= ranges[j][1]) {
             found = true;
             break;
         }}
@@ -31,12 +30,11 @@ for (let i = 0; i < values.length; i++) {
         out++;
     }
 }
-console.log(out);
+console.log("part 1:",out);
 
-
+// part 2 
 out = 0
 for (let i = 0; i < ranges.length; i++) {
     out += (ranges[i][1] - ranges[i][0] + 1);
 }
-console.log(ranges);
-console.log(out);
+console.log("part 2:",out);
